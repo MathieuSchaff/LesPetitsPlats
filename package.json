@@ -1,0 +1,14 @@
+{
+  "name": "code-begin",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass": "sass --watch ./sass/main.scss:./css/style.css --style compressed",
+    "prefix": "postcss ./public/css/style.css --use autoprefixer -d ./public/css/prefixed/",
+    "lint": "eslint ./"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

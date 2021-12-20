@@ -1,0 +1,93 @@
+.main-wrapper {
+  width: 100%;
+  display: grid;
+  height: auto;
+  grid-template-columns: repeat(auto-fill, 380px);
+  justify-content: space-between;
+  grid-gap: 15px;
+  @include for-tablet-landscape-up {
+    justify-content: center;
+  }
+}
+.recipe-card {
+  height: calc(364px / 2);
+  width: 380px;
+  left: 0px;
+  top: 0px;
+  border-radius: 5px;
+  padding: $padding-card;
+  margin-top: 150px;
+  background-color: #e7e7e7;
+}
+.recipe-first {
+  font-size: 1.8rem;
+  display: flex;
+  justify-content: space-between;
+}
+.recipe-sec {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  max-height: calc(100% - 42px);
+  overflow: hidden;
+}
+
+.recipe {
+  &-title {
+    font-family: Lato;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px;
+    letter-spacing: 0em;
+    text-align: left;
+  }
+  &-time {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 22px;
+    letter-spacing: 0em;
+    img {
+      margin-right: 7px;
+    }
+  }
+  &-list {
+    font-weight: 400;
+    font-size: 12px;
+    // line-height: 14.4px;
+    li {
+      font-family: Lato;
+      font-size: 12px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 14px;
+      letter-spacing: 0em;
+      text-align: left;
+    }
+  }
+  &-howtodo {
+    width: 172px;
+    height: 95px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 8;
+    overflow: hidden;
+    font-family: "Roboto", sans-serif;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 12px;
+    letter-spacing: 0em;
+  }
+}
+.bold {
+  font-family: Lato;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 14px;
+  letter-spacing: 0em;
+}

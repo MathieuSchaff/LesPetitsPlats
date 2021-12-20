@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <title>Les petits plats - Cooking app algorithm</title>
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <div class="body">
+      <header class="header">
+        <div class="logo">
+          <img class="header-image" src="./images/Vector.svg" alt="" />
+        </div>
+        <h1 class="header-title">Les petits plats</h1>
+      </header>
+      <div class="search">
+        <form action="" id="form">
+          <input
+            id="searchBar"
+            class="searchInput"
+            maxlength="2048"
+            placeholder="Rechercher un ingrédient, appareil, ustensiles ou une recette"
+            type="text"
+            aria-haspopup="false"
+            role="combobox"
+            spellcheck="false"
+            value=""
+            aria-label="Search"
+          />
+        </form>
+      </div>
+      <div class="tagContainer"></div>
+      <div class="inputsContainer">
+        <div class="dropdown dropdown--ingredient">
+          <input
+            id="ingredientInput"
+            class="tagInput search--ingredient"
+            type="text"
+            placeholder="Ingrédients"
+          />
+          <div class="ingredientsList search--ingredient"></div>
+        </div>
+        <div class="dropdown dropdown--appareil">
+          <input
+            id="appareilInput"
+            class="tagInput search--appareil"
+            type="text"
+            placeholder="Appareil"
+          />
+          <div class="appareilList search--appareil"></div>
+        </div>
+        <div class="dropdown dropdown--ustensils">
+          <input
+            id="ustensilsInput"
+            class="tagInput search--ustensils"
+            type="text"
+            placeholder="Ustensiles"
+          />
+          <div class="ustensilsList search--ustensils"></div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="./src/millionSeparated.js"></script>
+  <script src="recipes.js"></script>
+  <script src="./src/buildList.js"></script>
+  <script src="./src/buildCooking.js"></script>
+  <script src="./src/globalFunctions.js"></script>
+  <script src="./src/algo1.js"></script>
+  <script src="./src/searchMain.js"></script>
+  <script src="./src/ustensils.js"></script>
+  <script src="./src/appliance.js"></script>
+  <script src="./src/ingredients.js"></script>
+</html>

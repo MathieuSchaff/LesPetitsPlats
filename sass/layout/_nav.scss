@@ -1,0 +1,18 @@
+.search {
+  width: 100%;
+  margin-bottom: 20px;
+}
+form {
+  outline: none;
+}
+#searchBar {
+  height: 69px;
+  width: 100%;
+  border-radius: 5px;
+  border: none;
+  background-color: $colour-grey;
+  padding: 25px 0px 25px 19px;
+  &:focus {
+    outline: none;
+  }
+}

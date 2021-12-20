@@ -1,0 +1,47 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+a {
+  text-decoration: none;
+}
+
+html {
+  // 10px div by def of 16px
+  font-size: 62.5%;
+}
+
+body {
+  box-sizing: border-box;
+  background: $colour-white;
+}
+.body {
+  max-width: 1440px;
+  margin-left: 100px;
+  margin-right: 100px;
+  @include for-tablet-portrait-up {
+    margin: 0;
+  }
+}

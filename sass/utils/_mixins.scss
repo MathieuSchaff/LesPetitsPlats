@@ -1,0 +1,49 @@
+@mixin for-tablet-landscape-up {
+  @media (max-width: 999px) {
+    @content;
+  }
+}
+@mixin for-tablet-portrait-up {
+  @media (max-width: 600px) {
+    @content;
+  }
+}
+@mixin button {
+  display: inline-block;
+  flex-direction: column;
+  // max-height: 397px;
+  max-width: 667px;
+  border-radius: 5px;
+  margin-right: 20px;
+  color: #fff;
+  height: fit-content;
+  input {
+    width: 100%;
+    border: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    font-family: Lato;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 22px;
+    letter-spacing: 0em;
+    padding: 25px 0px 25px 19px;
+    color: #fff;
+    background-color: transparent;
+    &:focus {
+      outline: none;
+      border-radius: 5px 5px 0px 0px;
+    }
+    &:focus::placeholder {
+      color: transparent;
+    }
+    &::placeholder {
+      color: #fff;
+      transition: color 0.3s ease;
+    }
+  }
+}
+li:hover {
+  color: black;
+}
