@@ -17,11 +17,6 @@ ingredientInput.addEventListener("input", (e) => {
 ingredientInput.addEventListener("focus", (e) => {
   inputFocus(e.target.id);
 });
-
-// Ajoute un événement blur ( quand on quitte le input) => remove le ul
-// ingredientInput.addEventListener("blur", (e) => {
-//   document.querySelector(".ulIngredients").remove();
-// });
 function addTagEvent() {
   // Selectionne le ul concerné, qui est apparue au focus
   let ingredientsDom = document.querySelector(".ulIngredients");
@@ -32,7 +27,6 @@ function addTagEvent() {
       // initialise data-foo pour que chaque li ne soit pas cliquable plusieurs fois
       x.setAttribute("data-foo", "bar");
       x.addEventListener("click", (e) => {
-        e.stopPropagation();
         if (tags.ingredient.includes(x.innerText)) {
           return;
         }

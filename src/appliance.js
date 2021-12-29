@@ -33,7 +33,6 @@ function addTagEventAppliance() {
       // initialise data-foo pour que chaque li ne soit pas cliquable plusieurs fois
       x.setAttribute("data-foo", "bar");
       x.addEventListener("click", (e) => {
-        e.stopPropagation();
         if (tags.appliance.includes(x.innerText)) {
           return;
         }

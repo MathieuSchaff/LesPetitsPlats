@@ -14,10 +14,10 @@ function inputFocus(type) {
         .querySelector(".appareilList")
         .insertAdjacentElement("afterbegin", applianceDom);
       // Au clique sur ul ou sur le bouton a nouveau, ne remove pas le ul ( stop propagation)
-      applianceDom.addEventListener("click", (e) => {
+      applianceDom.addEventListener("mousedown", (e) => {
         e.stopPropagation();
       });
-      appareilInput.addEventListener("click", (e) => {
+      appareilInput.addEventListener("mousedown", (e) => {
         e.stopPropagation();
       });
       // ajout d'un événement pour chaque li du UL
@@ -33,10 +33,10 @@ function inputFocus(type) {
         .insertAdjacentElement("afterbegin", ingredientsDom);
 
       // Au clique sur ul ou sur le bouton a nouveau, ne remove pas le ul ( stop propagation)
-      ingredientsDom.addEventListener("click", (e) => {
+      ingredientsDom.addEventListener("mousedown", (e) => {
         e.stopPropagation();
       });
-      ingredientInput.addEventListener("click", (e) => {
+      ingredientInput.addEventListener("mousedown", (e) => {
         e.stopPropagation();
       });
       // ajout d'un événement pour chaque li du UL
@@ -51,10 +51,10 @@ function inputFocus(type) {
         .querySelector(".ustensilsList")
         .insertAdjacentElement("afterbegin", ustensilsDom);
       // Au clique sur ul ou sur le bouton a nouveau, ne remove pas le ul ( stop propagation)
-      ustensilsDom.addEventListener("click", (e) => {
+      ustensilsDom.addEventListener("mousedown", (e) => {
         e.stopPropagation();
       });
-      ustensilsInput.addEventListener("click", (e) => {
+      ustensilsInput.addEventListener("mousedown", (e) => {
         e.stopPropagation();
       });
       // ajout d'un événement pour chaque li du UL
@@ -140,6 +140,7 @@ function inputChange(type) {
 }
 // Remove the UL
 function removeUl() {
+  console.log("removeUl");
   document.querySelector(".ulIngredients").remove();
   document.body.removeEventListener("mousedown", removeUl);
 }
