@@ -2,7 +2,8 @@ function inputFocus(type) {
   if (document.querySelector(".ulIngredients")) {
     removeUl();
   }
-
+  // ajoute l'évenement sur le body => au click remove la liste
+  document.body.addEventListener("mousedown", removeUl);
   switch (type) {
     case "appareilInput":
       // Crée le ul avec les 30 premiers ingrédients et l'ajoute au dom
@@ -12,8 +13,6 @@ function inputFocus(type) {
       document
         .querySelector(".appareilList")
         .insertAdjacentElement("afterbegin", applianceDom);
-      // ajoute l'évenement sur le body => au click remove la liste
-      document.body.addEventListener("mousedown", removeUl);
       // Au clique sur ul ou sur le bouton a nouveau, ne remove pas le ul ( stop propagation)
       applianceDom.addEventListener("click", (e) => {
         e.stopPropagation();
@@ -21,22 +20,18 @@ function inputFocus(type) {
       appareilInput.addEventListener("click", (e) => {
         e.stopPropagation();
       });
-
       // ajout d'un événement pour chaque li du UL
       // Chaque li va crée un bouton qui sera ajouté au dessus dans la div tagContainer
       addTagEventAppliance();
       break;
     case "ingredientInput":
       // Crée le ul avec les 30 premiers ingrédients et l'ajoute au dom
-
-      console.log(allIngredients.slice(0, 30));
       let vnode2 = createUlIngredient(allIngredients.slice(0, 30));
       let ingredientsDom = createElement(vnode2);
       document
         .querySelector(".ingredientsList")
         .insertAdjacentElement("afterbegin", ingredientsDom);
-      // ajoute l'évenement sur le body => au click remove la liste
-      document.body.addEventListener("mousedown", removeUl);
+
       // Au clique sur ul ou sur le bouton a nouveau, ne remove pas le ul ( stop propagation)
       ingredientsDom.addEventListener("click", (e) => {
         e.stopPropagation();
@@ -44,7 +39,6 @@ function inputFocus(type) {
       ingredientInput.addEventListener("click", (e) => {
         e.stopPropagation();
       });
-
       // ajout d'un événement pour chaque li du UL
       // Chaque li va crée un bouton qui sera ajouté au dessus dans la div tagContainer
       addTagEvent();
@@ -56,8 +50,6 @@ function inputFocus(type) {
       document
         .querySelector(".ustensilsList")
         .insertAdjacentElement("afterbegin", ustensilsDom);
-      // ajoute l'évenement sur le body => au click remove la liste
-      document.body.addEventListener("mousedown", removeUl);
       // Au clique sur ul ou sur le bouton a nouveau, ne remove pas le ul ( stop propagation)
       ustensilsDom.addEventListener("click", (e) => {
         e.stopPropagation();
@@ -102,26 +94,11 @@ function inputChange(type) {
       let ulIngredients = document.querySelector(".ulIngredients");
       const newIngredients = allIngredients
         .filter((ingredient) => {
-          // if (ingredientInput.value.localeCompare(ingredient) === -1) {
-          //   return false;
-          // } else if (ingredientInput.value.localeCompare(ingredient) === 0) {
-          //   return false;
-          // } else if (
-          //   ingredient
-          //     .toLowerCase()
-          //     .includes(ingredientInput.value.toLowerCase()) ||
-          //   ingredientInput.value.localeCompare(ingredient) === 1
-          // ) {
-          //   return true;
-          // } else {
-          //   return false;
-          // }
           return ingredient
             .toLowerCase()
             .includes(ingredientInput.value.toLowerCase());
         })
         .slice(0, 30);
-      console.log(newIngredients);
       if (newIngredients.length === 0) {
         console.log("pas de recette");
         const vnode2 = m("ul", { className: "ulIngredients" }, [
@@ -142,7 +119,6 @@ function inputChange(type) {
           .toLowerCase()
           .includes(ustensilsInput.value.toLowerCase());
       });
-      console.log(newUstensils);
       if (newUstensils.length === 0) {
         console.log("pas de recette");
         const vnode3 = m("ul", { className: "ulIngredients" }, [

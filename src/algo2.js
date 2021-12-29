@@ -5,9 +5,16 @@ function triTagIngredients(array) {
       return ingredient.ingredient;
     });
     return tags.ingredient.every((ingredient) =>
-      myIngredients.includes(ingredient)
+      // myIngredients.includes(ingredient)
+      {
+        return myIngredients.some((myIngredient) => {
+          return myIngredient.startsWith(ingredient);
+        });
+      }
     );
   });
+
+  // some et start with
   return newArray;
 }
 function triTagUstensils(array) {
@@ -34,23 +41,19 @@ function triTagAppliance(array) {
 function triTagAll(array) {
   let newArray = array;
   newArray = triTagAppliance(newArray);
-  console.log(newArray);
   newArray = triTagUstensils(newArray);
-  console.log(newArray);
   newArray = triTagIngredients(newArray);
-  console.log(newArray);
   return newArray;
 }
 function searchMainInput(meals, value) {
-  meals = triTagAll(meals);
-  meals = meals.filter((recette) => {
+  let meals1 = meals.filter((recette) => {
     return (
       recette.name.toLowerCase().includes(value) ||
       recette.description.toLowerCase().includes(value) ||
-      meals[i].ingredients.filter((ingredient) =>
+      recette.ingredients.filter((ingredient) =>
         ingredient.ingredient.toLowerCase().includes(value)
       ).length > 0
     );
   });
-  return meals;
+  return meals1;
 }

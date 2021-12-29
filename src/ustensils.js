@@ -38,6 +38,7 @@ function addTagEventUstensils() {
       // initialise data-foo pour que chaque li ne soit pas cliquable plusieurs fois
       li.setAttribute("data-foo", "bar");
       li.addEventListener("click", (e) => {
+        e.stopPropagation();
         if (tags.ustensils.includes(li.innerText)) {
           return;
         }

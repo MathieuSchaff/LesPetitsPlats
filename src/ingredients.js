@@ -9,14 +9,6 @@ for (let i = 0; i < recipes.length; i++) {
 }
 allIngredients = [...new Set(allIngredients)].sort();
 
-// function buttonSearchIngredients(recipe, value) {
-//   let newArray = [];
-//   newArray = recipe.filter((x) => {
-//     return x.ingredients.some((y) => y.ingredient.includes(value));
-//   });
-//   return newArray;
-// }
-
 ingredientInput.addEventListener("input", (e) => {
   inputChange(e.target.id);
 });
@@ -40,6 +32,7 @@ function addTagEvent() {
       // initialise data-foo pour que chaque li ne soit pas cliquable plusieurs fois
       x.setAttribute("data-foo", "bar");
       x.addEventListener("click", (e) => {
+        e.stopPropagation();
         if (tags.ingredient.includes(x.innerText)) {
           return;
         }
