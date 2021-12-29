@@ -49,7 +49,6 @@ input.addEventListener("input", (e) => {
     sortedArray = simpleResearch(e.target.value);
     if (sortedArray.length > 0) {
       let vnode = createPage(sortedArray);
-      console.log(vnode);
       patch(page, vnode);
     } else {
       patch(page, createEmptyPage());
