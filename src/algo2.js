@@ -4,17 +4,12 @@ function triTagIngredients(array) {
     myIngredients = recette.ingredients.map((ingredient) => {
       return ingredient.ingredient;
     });
-    return tags.ingredient.every((ingredient) =>
-      // myIngredients.includes(ingredient)
-      {
-        return myIngredients.some((myIngredient) => {
-          return myIngredient.startsWith(ingredient);
-        });
-      }
-    );
+    return tags.ingredient.every((ingredient) => {
+      return myIngredients.some((myIngredient) => {
+        return myIngredient.startsWith(ingredient);
+      });
+    });
   });
-
-  // some et start with
   return newArray;
 }
 function triTagUstensils(array) {

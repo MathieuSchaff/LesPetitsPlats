@@ -23,10 +23,10 @@ ustensilsInput.addEventListener("focus", (e) => {
   inputFocus(e.target.id);
 });
 
-// // Ajoute un événement blur ( quand on quitte le input) => remove le ul
-// ustensilsInput.addEventListener("blur", (e) => {
-//   document.querySelector(".ulIngredients").remove();
-// });
+// // Ajoute un événement blur ( quand on quitte le input) =>
+ustensilsInput.addEventListener("blur", (e) => {
+  e.target.value = "";
+});
 
 function addTagEventUstensils() {
   // Selectionne le ul concerné, qui est apparue au focus

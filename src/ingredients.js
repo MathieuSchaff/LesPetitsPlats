@@ -17,6 +17,10 @@ ingredientInput.addEventListener("input", (e) => {
 ingredientInput.addEventListener("focus", (e) => {
   inputFocus(e.target.id);
 });
+ingredientInput.addEventListener("blur", (e) => {
+  e.target.value = "";
+});
+
 function addTagEvent() {
   // Selectionne le ul concerné, qui est apparue au focus
   let ingredientsDom = document.querySelector(".ulIngredients");

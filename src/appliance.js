@@ -17,12 +17,10 @@ appareilInput.addEventListener("focus", (e) => {
   inputFocus(e.target.id);
 });
 
-// Ajoute un événement blur ( quand on quitte le input) => remove le ul
-// appareilInput.addEventListener("blur", (e) => {
-//   if (document.querySelector(".ulIngredients")) {
-//     document.querySelector(".ulIngredients").remove();
-//   }
-// });
+// Ajoute un événement blur ( quand on quitte le input) =>
+appareilInput.addEventListener("blur", (e) => {
+  e.target.value = "";
+});
 function addTagEventAppliance() {
   // Selectionne le ul concerné, qui est apparue au focus
   let ulIngredients = document.querySelector(".ulIngredients");

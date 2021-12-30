@@ -9,7 +9,6 @@ function inputFocus(type) {
       // Crée le ul avec les 30 premiers ingrédients et l'ajoute au dom
       let vnode1 = createUlIngredient(allAppliance);
       let applianceDom = createElement(vnode1);
-      console.log(applianceDom);
       document
         .querySelector(".appareilList")
         .insertAdjacentElement("afterbegin", applianceDom);
@@ -74,9 +73,7 @@ function inputChange(type) {
           .toLowerCase()
           .includes(appareilInput.value.toLowerCase());
       });
-      console.log(appareilInput.value);
       if (newAppliance.length === 0) {
-        console.log("pas de recette");
         const vnode = m("ul", { className: "ulIngredients" }, [
           m("li", { className: "liIngredients" }, [
             "Pas d'ingrédients disponible",
@@ -100,7 +97,6 @@ function inputChange(type) {
         })
         .slice(0, 30);
       if (newIngredients.length === 0) {
-        console.log("pas de recette");
         const vnode2 = m("ul", { className: "ulIngredients" }, [
           m("li", { className: "liIngredients" }, [
             "Pas d'ingrédients disponible",
@@ -120,7 +116,6 @@ function inputChange(type) {
           .includes(ustensilsInput.value.toLowerCase());
       });
       if (newUstensils.length === 0) {
-        console.log("pas de recette");
         const vnode3 = m("ul", { className: "ulIngredients" }, [
           m("li", { className: "liIngredients" }, [
             "Pas d'ingrédients disponible",
@@ -140,7 +135,6 @@ function inputChange(type) {
 }
 // Remove the UL
 function removeUl() {
-  console.log("removeUl");
   document.querySelector(".ulIngredients").remove();
   document.body.removeEventListener("mousedown", removeUl);
 }
