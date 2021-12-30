@@ -39,8 +39,8 @@ body {
 }
 .body {
   max-width: 1440px;
-  margin-left: 100px;
-  margin-right: 100px;
+  margin-left: auto;
+  margin-right: auto;
   @include for-tablet-portrait-up {
     margin: 0;
   }
