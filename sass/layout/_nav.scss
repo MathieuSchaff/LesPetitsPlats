@@ -15,3 +15,15 @@ form {
     outline: none;
   }
 }
+#searchMain {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.searchIcon {
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+}

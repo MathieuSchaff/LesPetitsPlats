@@ -30,7 +30,6 @@ function inputFocus(type) {
       document
         .querySelector(".ingredientsList")
         .insertAdjacentElement("afterbegin", ingredientsDom);
-
       // Au clique sur ul ou sur le bouton a nouveau, ne remove pas le ul ( stop propagation)
       ingredientsDom.addEventListener("mousedown", (e) => {
         e.stopPropagation();
@@ -127,7 +126,6 @@ function inputChange(type) {
         patch(ustensilsList, vnode3);
         addTagEventUstensils();
       }
-
       break;
     default:
       break;
