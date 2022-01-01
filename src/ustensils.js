@@ -23,10 +23,10 @@ ustensilsInput.addEventListener("focus", (e) => {
   inputFocus(e.target.id);
 });
 
-// // Ajoute un événement blur ( quand on quitte le input) => remove le ul
-// ustensilsInput.addEventListener("blur", (e) => {
-//   document.querySelector(".ulIngredients").remove();
-// });
+// // Ajoute un événement blur ( quand on quitte le input) =>
+ustensilsInput.addEventListener("blur", (e) => {
+  e.target.value = "";
+});
 
 function addTagEventUstensils() {
   // Selectionne le ul concerné, qui est apparue au focus
@@ -38,7 +38,6 @@ function addTagEventUstensils() {
       // initialise data-foo pour que chaque li ne soit pas cliquable plusieurs fois
       li.setAttribute("data-foo", "bar");
       li.addEventListener("click", (e) => {
-        e.stopPropagation();
         if (tags.ustensils.includes(li.innerText)) {
           return;
         }
@@ -48,8 +47,8 @@ function addTagEventUstensils() {
         // crée li et l'ajoute dans le tagContainer
         let span = document.createElement("button");
         span.value = e.target.innerText;
-        span.innerText = e.target.innerText;
-        span.className = "tag tag-ustensils";
+        span.innerHTML = `${e.target.innerText}  <img class="crossTag" src="./images/crossTag.svg" alt="close">`;
+        span.classList.add("tag", "tag-ustensils");
         document
           .querySelector(".tagContainer")
           .insertAdjacentElement("beforeend", span);

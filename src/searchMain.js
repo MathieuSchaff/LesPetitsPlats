@@ -45,7 +45,6 @@ input.addEventListener("input", (e) => {
   sortedArray = Array.from(recipes);
   page = document.querySelector(".main-wrapper");
   if (e.target.value.length >= 3) {
-    console.log("entré dans input > 3");
     sortedArray = simpleResearch(e.target.value);
     if (sortedArray.length > 0) {
       let vnode = createPage(sortedArray);

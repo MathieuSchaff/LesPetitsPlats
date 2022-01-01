@@ -1,5 +1,9 @@
 .dropdown {
   @include button;
+  position: relative;
+  &:focus-within {
+    animation: progressUl 0.3s ease-in-out forwards;
+  }
   &--ingredient {
     background-color: $colour-ingredients;
   }
@@ -21,7 +25,17 @@
     background-color: $colour-appareil;
   }
 }
+.searchTag {
+  border-radius: 5px;
+}
 
+.iconChevron {
+  content: "\f078";
+  position: absolute;
+  top: 17px;
+  right: 20px;
+  transition: all 0.3s ease;
+}
 .ulIngredients {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -30,14 +44,15 @@
   font-size: 1.5rem;
   padding: 10px;
   grid-gap: 10px;
-  // margin-top: -5px;
+  max-height: 477px;
+  overflow: hidden;
 }
+
 .tag {
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 5px;
-  background-color: $colour-ingredients;
   color: $colour-white;
   font-size: 1.3rem;
   outline: none;
@@ -45,8 +60,21 @@
   margin: 5px 5px 5px 0px;
   padding: 10px;
   cursor: pointer;
+  &-ingredients {
+    background-color: $colour-ingredients;
+  }
+  &-ustensils {
+    background-color: $colour-ustensils;
+  }
+  &-appliance {
+    background-color: $colour-appareil;
+  }
+}
+.crossTag {
+  margin-left: 13px;
 }
 .tagContainer {
+  margin-top: 10px;
   display: flex;
   flex-wrap: wrap;
   width: 100%;

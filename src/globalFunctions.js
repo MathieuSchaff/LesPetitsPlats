@@ -9,15 +9,14 @@ function inputFocus(type) {
       // Crée le ul avec les 30 premiers ingrédients et l'ajoute au dom
       let vnode1 = createUlIngredient(allAppliance);
       let applianceDom = createElement(vnode1);
-      console.log(applianceDom);
       document
         .querySelector(".appareilList")
         .insertAdjacentElement("afterbegin", applianceDom);
       // Au clique sur ul ou sur le bouton a nouveau, ne remove pas le ul ( stop propagation)
-      applianceDom.addEventListener("click", (e) => {
+      applianceDom.addEventListener("mousedown", (e) => {
         e.stopPropagation();
       });
-      appareilInput.addEventListener("click", (e) => {
+      appareilInput.addEventListener("mousedown", (e) => {
         e.stopPropagation();
       });
       // ajout d'un événement pour chaque li du UL
@@ -31,12 +30,11 @@ function inputFocus(type) {
       document
         .querySelector(".ingredientsList")
         .insertAdjacentElement("afterbegin", ingredientsDom);
-
       // Au clique sur ul ou sur le bouton a nouveau, ne remove pas le ul ( stop propagation)
-      ingredientsDom.addEventListener("click", (e) => {
+      ingredientsDom.addEventListener("mousedown", (e) => {
         e.stopPropagation();
       });
-      ingredientInput.addEventListener("click", (e) => {
+      ingredientInput.addEventListener("mousedown", (e) => {
         e.stopPropagation();
       });
       // ajout d'un événement pour chaque li du UL
@@ -51,10 +49,10 @@ function inputFocus(type) {
         .querySelector(".ustensilsList")
         .insertAdjacentElement("afterbegin", ustensilsDom);
       // Au clique sur ul ou sur le bouton a nouveau, ne remove pas le ul ( stop propagation)
-      ustensilsDom.addEventListener("click", (e) => {
+      ustensilsDom.addEventListener("mousedown", (e) => {
         e.stopPropagation();
       });
-      ustensilsInput.addEventListener("click", (e) => {
+      ustensilsInput.addEventListener("mousedown", (e) => {
         e.stopPropagation();
       });
       // ajout d'un événement pour chaque li du UL
@@ -74,9 +72,7 @@ function inputChange(type) {
           .toLowerCase()
           .includes(appareilInput.value.toLowerCase());
       });
-      console.log(appareilInput.value);
       if (newAppliance.length === 0) {
-        console.log("pas de recette");
         const vnode = m("ul", { className: "ulIngredients" }, [
           m("li", { className: "liIngredients" }, [
             "Pas d'ingrédients disponible",
@@ -100,7 +96,6 @@ function inputChange(type) {
         })
         .slice(0, 30);
       if (newIngredients.length === 0) {
-        console.log("pas de recette");
         const vnode2 = m("ul", { className: "ulIngredients" }, [
           m("li", { className: "liIngredients" }, [
             "Pas d'ingrédients disponible",
@@ -120,7 +115,6 @@ function inputChange(type) {
           .includes(ustensilsInput.value.toLowerCase());
       });
       if (newUstensils.length === 0) {
-        console.log("pas de recette");
         const vnode3 = m("ul", { className: "ulIngredients" }, [
           m("li", { className: "liIngredients" }, [
             "Pas d'ingrédients disponible",
@@ -132,7 +126,6 @@ function inputChange(type) {
         patch(ustensilsList, vnode3);
         addTagEventUstensils();
       }
-
       break;
     default:
       break;

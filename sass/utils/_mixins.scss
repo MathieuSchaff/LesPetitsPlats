@@ -8,6 +8,16 @@
     @content;
   }
 }
+@keyframes progressUl {
+  0% {
+    width: 231px;
+    height: 72px;
+  }
+  100% {
+    width: 100%;
+    height: 100%;
+  }
+}
 @mixin button {
   display: inline-block;
   flex-direction: column;
@@ -18,7 +28,8 @@
   color: #fff;
   height: fit-content;
   input {
-    width: 100%;
+    min-width: 231px;
+    min-height: 72px;
     border: none;
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -34,6 +45,9 @@
     &:focus {
       outline: none;
       border-radius: 5px 5px 0px 0px;
+      + .iconChevron {
+        transform: rotate(180deg);
+      }
     }
     &:focus::placeholder {
       color: transparent;
