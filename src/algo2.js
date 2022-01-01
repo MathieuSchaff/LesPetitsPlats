@@ -10,6 +10,7 @@ function triTagIngredients(array) {
       });
     });
   });
+  console.log(array);
   return newArray;
 }
 function triTagUstensils(array) {
@@ -18,20 +19,24 @@ function triTagUstensils(array) {
       recette.ustensils.includes(ustensil)
     );
   });
+  console.log(array);
   return array;
 }
 function triTagAppliance(array) {
+  console.log(array);
   let emptyArray = [];
-  if (tags.appliance.length == 0) {
+  if (tags.appliance.length === 0) {
     return array;
   }
-  if (tags.appliance.length > 1) {
-    return emptyArray;
+  if (tags.appliance.length >= 1) {
+    console.log("entré appliance");
+    emptyArray = array.filter((recette) => {
+      return recette.appliance.includes(tags.appliance);
+    });
   }
-  array = array.filter((recette) => {
-    recette.appliance.includes(tags.appliance);
-  });
-  return array;
+
+  console.log(array);
+  return emptyArray;
 }
 function triTagAll(array) {
   let newArray = array;
