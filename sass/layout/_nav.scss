@@ -1,8 +1,12 @@
 .search {
   width: 100%;
 }
-form {
+#form {
   outline: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
 }
 #searchBar {
   height: 69px;
@@ -15,12 +19,7 @@ form {
     outline: none;
   }
 }
-#searchMain {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-}
+
 .searchIcon {
   position: absolute;
   top: 50%;
