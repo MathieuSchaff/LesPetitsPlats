@@ -41,7 +41,7 @@ function addTagEventAppliance() {
         // crée li et l'ajoute dans le tagContainer
         let span = document.createElement("button");
         span.value = e.target.innerText;
-        span.innerHTML = `${e.target.innerText}  <img class="crossTag" src="../images/crossTag.svg" alt="close">`;
+        span.innerHTML = `${e.target.innerText}  <img class="crossTag" src="./images/crossTag.svg" alt="close">`;
         span.classList.add("tag", "tag-appliance");
         document
           .querySelector(".tagContainer")
