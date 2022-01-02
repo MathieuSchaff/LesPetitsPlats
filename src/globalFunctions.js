@@ -143,6 +143,11 @@ function updateDomWithTags() {
     sortedArray = searchMainInput(sortedArray, input.value.toLowerCase());
   }
   sortedArray = triTagAll(sortedArray);
-  let newVnode = createPage(sortedArray);
-  patch(page, newVnode);
+  if (sortedArray.length === 0) {
+    let emptyPage = createEmptyPage();
+    patch(page, emptyPage);
+  } else {
+    let newVnode = createPage(sortedArray);
+    patch(page, newVnode);
+  }
 }

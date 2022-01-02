@@ -22,16 +22,15 @@ function triTagUstensils(array) {
 }
 function triTagAppliance(array) {
   let emptyArray = [];
-  if (tags.appliance.length == 0) {
+  if (tags.appliance.length === 0) {
     return array;
   }
-  if (tags.appliance.length > 1) {
-    return emptyArray;
+  if (tags.appliance.length >= 1) {
+    emptyArray = array.filter((recette) => {
+      return recette.appliance.includes(tags.appliance);
+    });
   }
-  array = array.filter((recette) => {
-    recette.appliance.includes(tags.appliance);
-  });
-  return array;
+  return emptyArray;
 }
 function triTagAll(array) {
   let newArray = array;

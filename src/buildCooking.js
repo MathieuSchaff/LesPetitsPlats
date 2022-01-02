@@ -113,6 +113,8 @@ function createPage(recipes2) {
   return vnode;
 }
 function createEmptyPage() {
-  const vnode = m("div", { className: "main-wrapper" }, [""]);
+  const vnode = m("div", { className: "main-wrapper" }, [
+    m("div", { className: "emptyPage" }, ["Aucun résultat n'a été trouvé"]),
+  ]);
   return vnode;
 }

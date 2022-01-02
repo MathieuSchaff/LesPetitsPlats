@@ -9,18 +9,19 @@ const tags = {
 };
 let page;
 let sortedArray = Array.from(recipes);
-function initPage() {
-  const vnode = createPage(sortedArray);
-  page = createElement(vnode);
-  document.querySelector(".body").insertAdjacentElement("beforeend", page);
-}
-initPage();
 // Selectionne l'input ingredient
 const ingredientInput = document.getElementById("ingredientInput");
 const appareilInput = document.getElementById("appareilInput");
 const ustensilsInput = document.getElementById("ustensilsInput");
 // Selectionne tous les inputs
 const inputsTag = document.querySelectorAll(".tagInput");
+
+function initPage() {
+  const vnode = createPage(sortedArray);
+  page = createElement(vnode);
+  document.querySelector(".body").insertAdjacentElement("beforeend", page);
+}
+initPage();
 
 function simpleResearch(value) {
   if (
@@ -44,13 +45,18 @@ input.addEventListener("input", (e) => {
   // alors va essayer de matcher avec
   sortedArray = Array.from(recipes);
   page = document.querySelector(".main-wrapper");
+  if (document.querySelector(".emptyPage")) {
+    return;
+  }
+
   if (e.target.value.length >= 3) {
     sortedArray = simpleResearch(e.target.value);
     if (sortedArray.length > 0) {
       let vnode = createPage(sortedArray);
       patch(page, vnode);
     } else {
-      patch(page, createEmptyPage());
+      let emptyPage = createEmptyPage();
+      patch(page, emptyPage);
     }
   } else {
     sortedArray = triTagAll(sortedArray);
