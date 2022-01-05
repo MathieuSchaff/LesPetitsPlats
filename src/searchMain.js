@@ -45,9 +45,7 @@ input.addEventListener("input", (e) => {
   // alors va essayer de matcher avec
   sortedArray = Array.from(recipes);
   page = document.querySelector(".main-wrapper");
-  if (document.querySelector(".emptyPage")) {
-    return;
-  }
+
 
   if (e.target.value.length >= 3) {
     sortedArray = simpleResearch(e.target.value);
