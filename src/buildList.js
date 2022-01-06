@@ -1,13 +1,13 @@
 function createsLiIngredient(li) {
-  const vnode = m("li", { className: "liIngredients" }, [li]);
+  const vnode = m('li', { className: 'liIngredients' }, [li])
 
-  return vnode;
+  return vnode
 }
 function createUlIngredient(arrayOfLi) {
   const vnode = m(
-    "ul",
-    { className: "ulIngredients" },
+    'ul',
+    { className: 'ulIngredients' },
     arrayOfLi.map((meals) => createsLiIngredient(meals))
-  );
-  return vnode;
+  )
+  return vnode
 }
