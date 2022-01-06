@@ -1,3 +1,4 @@
+// créer un élément du dom à partir d'un vnode
 const createElement = (vnode) => {
   if (typeof vnode === 'string') {
     return document.createTextNode(vnode) // Catch if vnode is just text
@@ -16,11 +17,13 @@ const createElement = (vnode) => {
   }
   return el
 }
+// renvoie un objet qui permettra de créer un élement à insérer dans le dom
 const m = (tag, props, children) => ({
   tag,
   props,
   children,
 })
+// transforme un element du dom en fonction d'un nouveau VNODE et d'un ancien VNODE
 const patch = (el, newVNode, oldVNode) => {
   if (!newVNode && newVNode !== '') return el.remove()
   if (typeof oldVNode === 'string' || typeof newVNode === 'string') {

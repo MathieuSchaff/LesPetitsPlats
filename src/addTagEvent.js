@@ -1,3 +1,4 @@
+// Fonction qui ajoute un tag quand on a cliqué sur un ustensils dans la liste des ustensiles dans le dropdown
 function addTagEventUstensils() {
   // Selectionne le ul concerné, qui est apparue au focus
   let ulIngredients = document.querySelector('.ulIngredients')
@@ -42,7 +43,7 @@ function addTagEventUstensils() {
     }
   })
 }
-
+// Fonction qui ajoute un tag quand on a cliqué sur un ustensils dans la liste des appareil dans le dropdown
 function addTagEventAppliance() {
   // Selectionne le ul concerné, qui est apparue au focus
   let ulIngredients = document.querySelector('.ulIngredients')
@@ -88,7 +89,7 @@ function addTagEventAppliance() {
     }
   })
 }
-
+// Fonction qui ajoute un tag quand on a cliqué sur un ustensils dans la liste des ingrédients dans le dropdown
 function addTagEventIngredient() {
   // Selectionne le ul concerné, qui est apparue au focus
   let ingredientsDom = document.querySelector('.ulIngredients')

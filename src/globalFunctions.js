@@ -1,3 +1,4 @@
+// fonction qui permet de faire apparaitre la liste des items correspondant au focus de l'input selectionné
 function inputFocus(type) {
   if (document.querySelector('.ulIngredients')) {
     removeUl()
@@ -50,6 +51,7 @@ function inputFocus(type) {
       break
   }
 }
+// Quand on tape dans un input , cela change la liste des items selectionnés et modifie le dom
 function inputChange(type) {
   console.log('input change')
   switch (type) {

@@ -69,7 +69,7 @@ function createLi3(ingredient) {
   )
   return vnode
 }
-
+// Vnode qui permet par la suite de créer les recettes à afficher dans le DOM
 function createPage(recipes2) {
   let recipesDisplay = recipes2
   const vnode = m(
@@ -109,6 +109,7 @@ function createPage(recipes2) {
   )
   return vnode
 }
+// crée un vnode qui affichera par la suite qu'il n'y a pas de recettes correspondant à la recherche
 function createEmptyPage() {
   const vnode = m('div', { className: 'main-wrapper' }, [
     m('div', { className: 'emptyPage' }, ["Aucun résultat n'a été trouvé"]),

@@ -1,3 +1,4 @@
+// Fonction qui ajoute un tag quand on a cliqué sur un ustensils dans la liste des ustensiles dans le dropdown
 function addTagEventUstensils() {
   // Selectionne le ul concerné, qui est apparue au focus
   let ulIngredients = document.querySelector('.ulIngredients')

@@ -23,7 +23,7 @@ for (let i = 0; i < recipes.length; i++) {
   }
 }
 allIngredients = [...new Set(allIngredients)].sort()
-
+// récupére tous les ustensiles
 let allUstensils = []
 for (let i = 0; i < recipes.length; i++) {
   for (let j = 0; j < recipes[i].ustensils.length; j++) {
@@ -31,9 +31,9 @@ for (let i = 0; i < recipes.length; i++) {
   }
 }
 allUstensils = [...new Set(allUstensils)]
-
+// récupère tous les appareils
 let allAppliance = [...new Set(recipes.map((x) => x.appliance))]
-
+// initialise la page en créant les recettes à partir de la liste des recettes , et ajoute pour chaque input un événement adéquat
 function initPage() {
   const input = document.getElementById('searchBar')
   const vnode = createPage(sortedArray)
@@ -49,7 +49,7 @@ function initPage() {
   ustensilsInput.addEventListener('mousedown', (e) => {
     e.stopPropagation()
   })
-  // Au focus
+  // Au focus de l'input
   appareilInput.addEventListener('focus', (e) => {
     inputFocus(e.target.id)
   })
@@ -71,7 +71,7 @@ function initPage() {
     inputChange(e.target.id)
   })
 
-  // Ajoute un événement blur ( quand on quitte le input) =>
+  // Ajoute un événement blur ( quand on quitte le input) => remet la valeur de l'input à vide
   appareilInput.addEventListener('blur', (e) => {
     e.target.value = ''
   })

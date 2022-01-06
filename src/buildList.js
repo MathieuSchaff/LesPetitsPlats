@@ -3,6 +3,7 @@ function createsLiIngredient(li) {
 
   return vnode
 }
+// Permet de créer la liste des ingrédients de tous les dropdown en fonction du dropdown selectionné /ou du tri effectué sur l'input du dropdown en question
 function createUlIngredient(arrayOfLi) {
   const vnode = m(
     'ul',
