@@ -1,43 +1,16 @@
-const form = document.getElementById('form')
-let meals = []
-const input = document.getElementById('searchBar')
-console.log(input)
-const tags = {
-  ustensils: [],
-  appliance: [],
-  ingredient: [],
-}
-let page
-let sortedArray = Array.from(recipes)
-// Selectionne l'input ingredient
-const ingredientInput = document.getElementById('ingredientInput')
-const appareilInput = document.getElementById('appareilInput')
-const ustensilsInput = document.getElementById('ustensilsInput')
-// Selectionne tous les inputs
-const inputsTag = document.querySelectorAll('.tagInput')
-//Récupère tous les ingrédients
-let allIngredients = []
-for (let i = 0; i < recipes.length; i++) {
-  for (let j = 0; j < recipes[i].ingredients.length; j++) {
-    allIngredients.push(recipes[i].ingredients[j].ingredient)
-  }
-}
-allIngredients = [...new Set(allIngredients)].sort()
-// récupére tous les ustensiles
-let allUstensils = []
-for (let i = 0; i < recipes.length; i++) {
-  for (let j = 0; j < recipes[i].ustensils.length; j++) {
-    allUstensils.push(recipes[i].ustensils[j])
-  }
-}
-allUstensils = [...new Set(allUstensils)]
-// récupère tous les appareils
-let allAppliance = [...new Set(recipes.map((x) => x.appliance))]
+import { recipes } from './recipes.js'
+import { createElement, patch } from './millionSeparated.js'
+import { createEmptyPage, createPage } from './buildCooking.js'
+import { inputChange, inputFocus } from './globalFunctions.js'
+import { triTagAll } from './algo2.js'
+import { simpleResearch } from './searchMain.js'
+import { sortedArray } from './index.js'
+
 // initialise la page en créant les recettes à partir de la liste des recettes , et ajoute pour chaque input un événement adéquat
-function initPage() {
+export function initPage() {
   const input = document.getElementById('searchBar')
   const vnode = createPage(sortedArray)
-  page = createElement(vnode)
+  let page = createElement(vnode)
   document.querySelector('.body').insertAdjacentElement('beforeend', page)
   // Ajout de l'évenement stop propagation sur les inputs
   ingredientInput.addEventListener('mousedown', (e) => {
@@ -88,7 +61,7 @@ function initPage() {
   input.addEventListener('input', (e) => {
     // Si l'input de recherche principal est supérieur ou égal à 3 caractère
     // alors va essayer de matcher avec
-    sortedArray = Array.from(recipes)
+    let sortedArray = Array.from(recipes)
     page = document.querySelector('.main-wrapper')
 
     if (e.target.value.length >= 3) {
@@ -110,4 +83,3 @@ function initPage() {
     e.preventDefault()
   })
 }
-initPage()

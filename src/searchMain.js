@@ -1,6 +1,10 @@
 // Fonction principale de l'input principale
 // renvoie une liste de recette en fonction de la saisie de l'utilisateur ( voir base.js)
-function simpleResearch(value) {
+import { triTagAll, searchMainInput } from './algo2.js'
+import { tags } from './index.js'
+import { recipes } from './recipes.js'
+export function simpleResearch(value) {
+  let sortedArray = Array.from(recipes)
   if (
     !(tags.ingredient.length === 0 && tags.ustensils.length === 0 && tags.appliance.length === 0)
   ) {

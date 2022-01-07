@@ -1,9 +1,14 @@
 //Renvoie une liste de recette en fonction du/des tag ingrédients selectionné.
 // S'il n'y a pas de tag, renvoie la liste envoyé en paramètre
+import { tags } from './index.js'
+// import {
+//   myIngredient,
+
+// }
 function triTagIngredients(array) {
   // tri intregient
   let newArray = array.filter((recette) => {
-    myIngredients = recette.ingredients.map((ingredient) => {
+    let myIngredients = recette.ingredients.map((ingredient) => {
       return ingredient.ingredient
     })
     return tags.ingredient.every((ingredient) => {
@@ -38,7 +43,7 @@ function triTagAppliance(array) {
 }
 // Fonction qui va aller trier pour chaque tag la liste de recette à renvoyé
 // Retourne la liste des recettes triés par toute les fonctions de tris des ustensiles, ingrédients et appareils ( appliance)
-function triTagAll(array) {
+export function triTagAll(array) {
   let newArray = array
   newArray = triTagAppliance(newArray)
   newArray = triTagUstensils(newArray)
@@ -46,7 +51,7 @@ function triTagAll(array) {
   return newArray
 }
 // Fonction de l'input principal qui va chercher dans le nom, la description, et les ingrédients s'il y a une correspondance avec la recherche effectué.
-function searchMainInput(meals, value) {
+export function searchMainInput(meals, value) {
   let meals1 = meals.filter((recette) => {
     return (
       recette.name.toLowerCase().includes(value) ||

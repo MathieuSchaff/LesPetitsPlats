@@ -1,5 +1,7 @@
 // Fonction qui ajoute un tag quand on a cliqué sur un ustensils dans la liste des ustensiles dans le dropdown
-function addTagEventUstensils() {
+import { removeUl, updateDomWithTags } from './globalFunctions.js'
+import { tags } from './index.js'
+export function addTagEventUstensils() {
   // Selectionne le ul concerné, qui est apparue au focus
   let ulIngredients = document.querySelector('.ulIngredients')
   ulIngredients.addEventListener('mousedown', (e) => {
@@ -44,7 +46,7 @@ function addTagEventUstensils() {
   })
 }
 // Fonction qui ajoute un tag quand on a cliqué sur un ustensils dans la liste des appareil dans le dropdown
-function addTagEventAppliance() {
+export function addTagEventAppliance() {
   // Selectionne le ul concerné, qui est apparue au focus
   let ulIngredients = document.querySelector('.ulIngredients')
   // Selectionne tous les li
@@ -90,7 +92,7 @@ function addTagEventAppliance() {
   })
 }
 // Fonction qui ajoute un tag quand on a cliqué sur un ustensils dans la liste des ingrédients dans le dropdown
-function addTagEventIngredient() {
+export function addTagEventIngredient() {
   // Selectionne le ul concerné, qui est apparue au focus
   let ingredientsDom = document.querySelector('.ulIngredients')
 
