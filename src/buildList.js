@@ -1,13 +1,14 @@
 function createsLiIngredient(li) {
-  const vnode = m("li", { className: "liIngredients" }, [li]);
+  const vnode = m('li', { className: 'liIngredients' }, [li])
 
-  return vnode;
+  return vnode
 }
+// Permet de créer la liste des ingrédients de tous les dropdown en fonction du dropdown selectionné /ou du tri effectué sur l'input du dropdown en question
 function createUlIngredient(arrayOfLi) {
   const vnode = m(
-    "ul",
-    { className: "ulIngredients" },
+    'ul',
+    { className: 'ulIngredients' },
     arrayOfLi.map((meals) => createsLiIngredient(meals))
-  );
-  return vnode;
+  )
+  return vnode
 }

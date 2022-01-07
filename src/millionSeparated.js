@@ -1,45 +1,48 @@
+// créer un élément du dom à partir d'un vnode
 const createElement = (vnode) => {
-  if (typeof vnode === "string") {
-    return document.createTextNode(vnode); // Catch if vnode is just text
+  if (typeof vnode === 'string') {
+    return document.createTextNode(vnode) // Catch if vnode is just text
   }
 
-  const el = document.createElement(vnode.tag);
+  const el = document.createElement(vnode.tag)
   if (vnode.props) {
     Object.entries(vnode.props).forEach(([name, value]) => {
-      el[name] = value;
-    });
+      el[name] = value
+    })
   }
   if (vnode.children) {
     vnode.children.forEach((child) => {
-      el.appendChild(createElement(child));
-    });
+      el.appendChild(createElement(child))
+    })
   }
-  return el;
-};
+  return el
+}
+// renvoie un objet qui permettra de créer un élement à insérer dans le dom
 const m = (tag, props, children) => ({
   tag,
   props,
   children,
-});
+})
+// transforme un element du dom en fonction d'un nouveau VNODE et d'un ancien VNODE
 const patch = (el, newVNode, oldVNode) => {
-  if (!newVNode && newVNode !== "") return el.remove();
-  if (typeof oldVNode === "string" || typeof newVNode === "string") {
-    if (oldVNode !== newVNode) return el.replaceWith(createElement(newVNode));
+  if (!newVNode && newVNode !== '') return el.remove()
+  if (typeof oldVNode === 'string' || typeof newVNode === 'string') {
+    if (oldVNode !== newVNode) return el.replaceWith(createElement(newVNode))
   } else {
     //
     if (oldVNode?.tag !== newVNode.tag) {
-      return el.replaceWith(createElement(newVNode));
+      return el.replaceWith(createElement(newVNode))
     }
 
     if (oldVNode) {
       for (const propName in oldVNode.props) {
         if (oldVNode.props[propName] === newVNode.props[propName])
-          return el.replaceWith(createElement(newVNode));
+          return el.replaceWith(createElement(newVNode))
       }
 
       for (let i = el.childNodes.length - 1; i >= 0; i--) {
-        patch(el.childNodes[i], newVNode.children[i], oldVNode.children[i]);
+        patch(el.childNodes[i], newVNode.children[i], oldVNode.children[i])
       }
     }
   }
-};
+}
