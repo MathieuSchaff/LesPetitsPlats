@@ -1,5 +1,16 @@
 // fonction qui permet de faire apparaitre la liste des items correspondant au focus de l'input selectionné
-function inputFocus(type) {
+import { recipes } from './recipes.js'
+import { createElement, m, patch } from './millionSeparated.js'
+import { createEmptyPage, createPage } from './buildCooking.js'
+import { createUlIngredient } from './buildList.js'
+import { searchMainInput, triTagAll } from './algo2.js'
+import { allAppliance, allIngredients, allUstensils } from './index.js'
+import { addTagEventUstensils, addTagEventAppliance, addTagEventIngredient } from './addTagEvent.js'
+import { page } from './index.js'
+import { input } from './index.js'
+import { tags } from './index.js'
+
+export function inputFocus(type) {
   if (document.querySelector('.ulIngredients')) {
     removeUl()
   }
@@ -52,8 +63,7 @@ function inputFocus(type) {
   }
 }
 // Quand on tape dans un input , cela change la liste des items selectionnés et modifie le dom
-function inputChange(type) {
-  console.log('input change')
+export function inputChange(type) {
   switch (type) {
     case 'appareilInput':
       let appareilList = document.querySelector('.ulIngredients')
@@ -110,13 +120,14 @@ function inputChange(type) {
   }
 }
 // Remove the UL
-function removeUl() {
+export function removeUl() {
   document.querySelector('.ulIngredients').remove()
   document.body.removeEventListener('mousedown', removeUl)
 }
-function updateDomWithTags() {
-  page = document.querySelector('.main-wrapper')
-  sortedArray = Array.from(recipes)
+export function updateDomWithTags() {
+  let page = document.querySelector('.main-wrapper')
+  // page = document.querySelector('.main-wrapper')
+  let sortedArray = Array.from(recipes)
   if (input.value.length >= 0) {
     sortedArray = searchMainInput(sortedArray, input.value.toLowerCase())
   }
