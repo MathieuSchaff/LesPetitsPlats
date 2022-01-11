@@ -4,8 +4,7 @@ import { triTagAll, searchMainInput } from './algo2.js'
 import { tags } from './index.js'
 import { recipes } from './recipes.js'
 export function simpleResearch(value) {
-  console.time('triTagAll')
-  const start = new Date()
+  console.time('triTagAll/ALGO2')
   let sortedArray = Array.from(recipes)
   if (
     !(tags.ingredient.length === 0 && tags.ustensils.length === 0 && tags.appliance.length === 0)
@@ -15,8 +14,6 @@ export function simpleResearch(value) {
   } else {
     sortedArray = searchMainInput(sortedArray, value.toLowerCase())
   }
-  console.timeEnd('triTagAll')
-  const end = new Date()
-  console.log(`Execution time: ${end - start}ms`)
+  console.timeEnd('triTagAll/ALGO2')
   return sortedArray
 }
