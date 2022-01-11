@@ -4,6 +4,7 @@ import { triTagAll, searchMainInput } from './algo1.js'
 import { tags } from './index.js'
 import { recipes } from './recipes.js'
 export function simpleResearch(value) {
+  console.time('simpleResearch/ALGO1')
   let sortedArray = Array.from(recipes)
   if (
     !(tags.ingredient.length === 0 && tags.ustensils.length === 0 && tags.appliance.length === 0)
@@ -13,6 +14,6 @@ export function simpleResearch(value) {
   } else {
     sortedArray = searchMainInput(sortedArray, value.toLowerCase())
   }
-
+  console.timeEnd('simpleResearch/ALGO1')
   return sortedArray
 }

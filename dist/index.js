@@ -2330,6 +2330,7 @@ function updateDomWithTags() {
 
 // Fonction principale de l'input principale
 function simpleResearch(value) {
+  console.time('simpleResearch/ALGO1');
   let sortedArray = Array.from(recipes);
   if (
     !(tags.ingredient.length === 0 && tags.ustensils.length === 0 && tags.appliance.length === 0)
@@ -2339,7 +2340,7 @@ function simpleResearch(value) {
   } else {
     sortedArray = searchMainInput(sortedArray, value.toLowerCase());
   }
-
+  console.timeEnd('simpleResearch/ALGO1');
   return sortedArray
 }
 
